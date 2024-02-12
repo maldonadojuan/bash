@@ -24,3 +24,8 @@ sudo nixos-rebuild switch --flake /etc/nixos#default
 
 # modules are chunks of nixos code that enable functions and features
 
+nix run home-manager/master -- init && \
+sudo cp ~/.config/home-manager/home.nix /etc/nixos/
+
+sudo nixos-rebuilt switch --flake /etc/nixos#default
+
