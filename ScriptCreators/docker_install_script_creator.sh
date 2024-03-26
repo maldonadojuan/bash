@@ -1,10 +1,11 @@
-cat << EOF >> docker.sh
+cat << EOF >> install_docker.sh
+#!/bin/bash
 # Docker Install script
 # Add Docker's official GPG key:
 sudo apt update
 sudo apt install ca-certificates curl -y
 sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 # Add the repository to Apt sources:
@@ -16,4 +17,4 @@ sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 EOF
-chmod +x docker.sh
+chmod +x install_docker.sh
